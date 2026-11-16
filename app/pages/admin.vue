@@ -143,7 +143,7 @@ function logout() { try { sessionStorage.removeItem('admin-token') } catch {} au
                   </label>
                   <button v-if="item[f[0]]" class="del-img" @click="item[f[0]] = ''; touch()">Remove</button>
                   <input type="text" placeholder="…or paste an image URL" :value="item[f[0]] || ''" @input="setVal(item, f, ($event.target as HTMLInputElement).value)">
-                  <small>JPG, PNG, WebP or GIF, max 5 MB</small>
+                  <small>JPG, PNG, WebP or GIF, max 4 MB</small>
                 </div>
               </div>
             </div>

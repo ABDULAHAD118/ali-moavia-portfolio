@@ -2,8 +2,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-11-01',
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
-  // Uploaded images live on disk next to the content file.
-  nitro: { storage: { uploads: { driver: 'fs', base: './.data/uploads' } } },
   runtimeConfig: { adminToken: '' }, // set via NUXT_ADMIN_TOKEN; empty = editing disabled
   app: {
     head: {

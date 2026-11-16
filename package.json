@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@upstash/redis": "^1.41.0",
     "nuxt": "^4.6.4",
     "three": "^0.187.0"
   }
