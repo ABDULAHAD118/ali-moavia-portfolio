@@ -1,0 +1,38 @@
+:root{
+  --bg:#0a0a0a;--ink:#eef0f2;--mute:#9a9fa6;--line:#26292d;
+  --vis:#f5e400;            /* hi-vis safety yellow */
+  --concrete:#e4dfd8;--dark:#141210;
+  --display:'Saira Stencil One','Arial Narrow',sans-serif; /* site-hoarding stencil */
+  --wide:'Barlow Condensed','Arial Narrow',sans-serif;    /* highway-signage grotesk */
+  --mono:'IBM Plex Mono',ui-monospace,monospace;          /* spec-sheet text */
+  --hazard:repeating-linear-gradient(-45deg,var(--vis) 0 14px,#0a0a0a 14px 28px);
+}
+*{box-sizing:border-box;margin:0}
+/* clip (not hidden): stops sideways scroll from the tilted ticker without breaking the sticky nav */
+html{scroll-behavior:smooth;overflow-x:clip}
+/* night site: floodlight glow from the crane corner, survey benchmark "+" marks, deep ground tone */
+body{background:
+  radial-gradient(900px 600px at 88% -8%,rgba(245,228,0,.09),transparent 65%),
+  radial-gradient(700px 500px at -5% 105%,rgba(80,130,190,.08),transparent 60%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cpath d='M48 43v10M43 48h10' stroke='%23fff' stroke-opacity='.09'/%3E%3C/svg%3E"),
+  linear-gradient(180deg,#0b0c0e,#0a0a0a 40%,#0d0c0a);
+  background-attachment:fixed;color:var(--ink);font:400 15px/1.7 var(--mono);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:var(--vis);color:#000}
+:focus-visible{outline:2px solid var(--vis);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* Surveyor's crosshair cursor (enabled from index.vue for mouse users) */
+.reticle{display:none}
+html.has-reticle .reticle{display:block;position:fixed;left:-18px;top:-18px;width:36px;height:36px;z-index:100;pointer-events:none;mix-blend-mode:difference;border:1px solid #fff;border-radius:50%;opacity:0;transition:opacity .2s}
+html.reticle-on .reticle{opacity:1}
+.reticle i::before,.reticle i::after{content:"";position:absolute;background:#fff}
+.reticle i::before{left:50%;top:-6px;bottom:-6px;width:1px}
+.reticle i::after{top:50%;left:-6px;right:-6px;height:1px}
+
+/* drawing-sheet frame with grid references (index.vue) */
+.sheet{position:fixed;inset:10px;z-index:11;pointer-events:none;border:1px solid rgba(255,255,255,.07);font:500 .58rem var(--mono);color:rgba(255,255,255,.22);letter-spacing:.1em}
+.sheet .row{position:absolute;left:0;right:0;display:flex;justify-content:space-around}
+.sheet .col{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-around}
+.sheet .row.t{top:4px}.sheet .row.b{bottom:4px}.sheet .col.l{left:5px}.sheet .col.r{right:5px}
+@media(max-width:900px){.sheet{display:none}}
